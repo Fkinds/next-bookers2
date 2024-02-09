@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    #command: sh -c "yarn dev"
+    volumes:
+      - type: bind
+        source: .
+        target: /user/src/myapp
+    ports:
+      - 3000:3000
+      - 5555:5555
+    environment:
+      - WATCHPACK_POLLING=true
+    stdin_open: true
