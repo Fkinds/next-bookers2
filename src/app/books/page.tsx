@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const page = () => {
+const Books = () => {
     return (
         <div>page</div>
     )
 }
+
+export default Books

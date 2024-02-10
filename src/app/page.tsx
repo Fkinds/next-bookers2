@@ -8,6 +8,7 @@ const Home = async () =>  {
 
   return (
     <>
+      topページ
       { session ? <LogoutButton/> : <LoginButton/> }
     </>
   );
