@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 export const authOption = {
   adapter: PrismaAdapter(prisma),
-  debug: true,
+  debug: false,
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_ID!,
@@ -21,14 +21,12 @@ export const authOption = {
   ],
   callbacks: {
     async session({ session, user }) {
-      const userData = prisma.user.findUnique({
+      const userData = await prisma.user.findUnique({
         where:{id: user.id }
       })
-      console.log(userData)
       if (session && session.user){
         session.user.introduction = userData?.introduction
       }
-      
       return session
     }
   }
