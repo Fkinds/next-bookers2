@@ -1,9 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { NextResponse } from "next/server";
+import { main } from "../user/route"
 
 const prisma = new PrismaClient();
 
-export const main = async() => {
+export const GET = async() => {
     try {
         await main();
         const books = await prisma.book.findMany();
@@ -36,7 +37,8 @@ export const POST = async (req: Request, res: Response) => {
         const { title, body, userId } = await req.json();
         await main();
         const book = await prisma.book.create({
-            data: { title, body, userId},
+            data: { title, body, userId, createdAt: new Date(), updatedAt: new Date() }
+            // data: { title, body, userId }
         });
         return NextResponse.json({ message: "Success", book },{ status: 201});
     } catch(error){
