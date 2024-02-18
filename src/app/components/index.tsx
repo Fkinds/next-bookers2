@@ -1,16 +1,15 @@
-"use client"
-import { useState, useEffect }  from 'react'
+import type { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
-export const Index = ({urlparameter,object,}) => {
-    const [objects, setObjects] = useState([]);
-    useEffect(() => {
-        const fetchObjects = async() => {
-            const res = await fetch(urlparameter);
-            const data = await res.json;
-            setObjects(data[object]);
-        }
-    })
-    return (
-        <div>index</div>
-    )
+export const getServerSideProps = async () => {
+    const res = await fetch(`http://localhost:3000/api/book`)
+    const repo = await res.json();
+    console.log(repo);
+    return <h1>aaaaa</h1>
+    // return { props: { repo } }
 }
+
+// export default function Index({ repo }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+//     return (
+//         // { repo.map }
+//     )
+// }

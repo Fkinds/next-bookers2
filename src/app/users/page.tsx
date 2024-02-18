@@ -1,6 +1,6 @@
 import React from 'react'
 import { UserInformation } from '../components/userInformation'
-import { Index } from '../components'
+import { Index } from '../components/index'
 
 
 const Users = () => {
