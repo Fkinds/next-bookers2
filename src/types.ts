@@ -13,3 +13,5 @@ export type bookType = {
     userId : string
     userName : string
 }
+
+export type dataType =  userType[] | bookType[] | any 

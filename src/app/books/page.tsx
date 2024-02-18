@@ -1,8 +1,18 @@
-import React from 'react'
+import Index from "../components";
+import { UserInformation } from "../components/userInformation";
 
-const Books = () => {
+const Books = async () => {
+    const urlparameter = `http://localhost:3000/api/book`
+    const res = await fetch(urlparameter, {
+        cache: "no-store"
+    });
+    const bookObject = await res.json();
+    console.log(bookObject)
     return (
-        <div>page</div>
+        <>
+            <UserInformation />
+            <Index Data={bookObject} />
+        </>
     )
 }
 
