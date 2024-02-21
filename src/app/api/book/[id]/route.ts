@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 export const GET = async (req: Request, res: Response) => {
     try {
-        const id: number = parseInt(req.url.split("bok/")[1]);
+        const id: number = parseInt(req.url.split("book/")[1]);
         await main();
         const book = await prisma.book.findUnique({
             where: { id },
