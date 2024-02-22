@@ -8,10 +8,9 @@ const BookDetail = async({ params }: { params: { id: number } }) => {
         cache: "no-store"
     });
     const data = await res.json();
-    const values = Object.keys(data)[1]
-    // console.log(values)
+    // console.log(data)
     return (
-        <Show Data={values} />
+        <Show Data={data} />
     )
 }
 

@@ -8,10 +8,9 @@ const UserDetail = async ({ params }: { params: { id: string } }) => {
         cache: "no-store"
     });
     const data = await res.json();
-    const values = Object.keys(data)[1]
-    console.log(values)
+    // console.log(data.user)
     return (
-        <Show Data={values} />
+        <Show Data={data} />
     )
 }
 

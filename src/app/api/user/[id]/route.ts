@@ -8,7 +8,7 @@ export const GET = async(req: Request, res: NextResponse) => {
     try{
         const id: string = req.url.split("user/")[1];
         await main();
-        const user = await prisma.user.findMany({
+        const user = await prisma.user.findFirst({
             where: { id },
             include: {
                 books: true,
