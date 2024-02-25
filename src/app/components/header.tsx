@@ -5,7 +5,6 @@ import Link from "next/link";
 
 const Header = async () => {
     const session = await getServerSession(authOption)
-
     return (
         <>
             <header>

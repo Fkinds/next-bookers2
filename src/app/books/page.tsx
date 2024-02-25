@@ -1,4 +1,5 @@
 import Index from "../components";
+import BookForm from "../components/bookForm";
 import { UserInformation } from "../components/userInformation";
 
 const Books = async () => {
@@ -7,11 +8,11 @@ const Books = async () => {
         cache: "no-store"
     });
     const bookObject = await res.json();
-    console.log(bookObject)
     return (
         <>
             <UserInformation />
             <Index Data={bookObject} />
+            <BookForm/>
         </>
     )
 }

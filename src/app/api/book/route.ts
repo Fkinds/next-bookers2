@@ -32,13 +32,13 @@ export const GET = async() => {
     }
 };
 
-export const POST = async (req: Request, res: Response) => {
+export const POST = async (req: Request, res: NextResponse) => {
     try{
         const { title, body, userId } = await req.json();
         await main();
         const book = await prisma.book.create({
-            data: { title, body, userId, createdAt: new Date(), updatedAt: new Date() }
-            // data: { title, body, userId }
+            // data: { title, body, userId, createdAt: new Date(), updatedAt: new Date() }
+            data: { title, body, userId }
         });
         return NextResponse.json({ message: "Success", book },{ status: 201});
     } catch(error){
