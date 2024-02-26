@@ -1,18 +1,19 @@
 import { getServerSession } from "next-auth/next";
 import { authOption } from "../options/authOption";
+import { redirect } from "next/navigation";
 
 export default async function BookForm() {
     const session = await getServerSession(authOption)
-    // console.log(session.user)
+    // console.log(session?.user?.id)
     const createBook = async (formData: FormData) => {
         'use server'
-        const body = formData.get('body');
-        const title = formData.get('title');
-        // const userId = session.user
+        // const body = formData.get('body');
+        // const title = formData.get('title');
+        // const userId = session?.user.id
         const book = {
-            title: title,
-            body: body,
-            // userId: userId
+            title: formData.get('title'),
+            body: formData.get('body'),
+            userId: session?.user.id
         }
         const urlparams = `http://localhost:3000/api/book`
         const res = await fetch(urlparams, {
@@ -24,9 +25,9 @@ export default async function BookForm() {
             // body: JSON.stringify({ body: book })
         })
         const data = await res.json()
-        console.log(book)
-        return data
+        redirect(`/books/${data.book.id}`)
     }
+
     return (
         <>
             <form action={createBook}>

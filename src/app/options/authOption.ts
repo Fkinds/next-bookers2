@@ -26,6 +26,7 @@ export const authOption = {
       })
       if (session && session.user){
         session.user.introduction = userData?.introduction
+        session.user.id = userData?.id
       }
       return session
     }
