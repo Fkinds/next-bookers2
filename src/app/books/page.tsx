@@ -3,8 +3,9 @@ import BookForm from "../components/bookForm";
 import { UserInformation } from "../components/userInformation";
 
 const Books = async () => {
-    const urlparameter = `http://localhost:3000/api/book`
-    const res = await fetch(urlparameter, {
+    const parameter = `http://localhost:3000/api/book`
+    const method = "POST"
+    const res = await fetch(parameter, {
         cache: "no-store"
     });
     const bookObject = await res.json();
@@ -12,7 +13,7 @@ const Books = async () => {
         <>
             <UserInformation />
             <Index Data={bookObject} />
-            <BookForm/>
+            <BookForm urlparameter={parameter} httpMethod={method}/>
         </>
     )
 }

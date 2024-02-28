@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    command: sh -c "yarn dev"
+    command: sh -c "npm run dev"
     volumes:
       - type: bind
         source: .

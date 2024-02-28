@@ -14,4 +14,9 @@ export type bookType = {
     userName : string
 }
 
+// export type objcetType = {
+//     urlparamter : string
+//     method : string 
+// }
+
 export type dataType =  userType[] | bookType[] | any 

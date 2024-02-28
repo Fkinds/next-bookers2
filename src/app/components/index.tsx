@@ -7,10 +7,10 @@ export default function Index({ Data }: dataType) {
     const books = Data.books
     const users = Data.users
     return (
-        <>
+        <div className="grid place-content-center">
             {
                 values === "books" ? (
-                    <table>
+                    <table className="table-auto border">
                         <thead>
                             <tr>
                                 <th>title</th>
@@ -22,18 +22,28 @@ export default function Index({ Data }: dataType) {
                             {
                                 books.map((book: bookType) => (
                                     <tr key={book.id}>
-                                        <Link href={`books/${book.id}`} >
-                                            <td>{book.title}</td>
-                                            <td>{book.body}</td>
-                                            <td>{book.userName}</td>
-                                        </Link>
+                                            <td>
+                                                <Link href={`books/${book.id}`} >
+                                                    {book.title}
+                                                </Link>
+                                            </td>
+                                            <td>
+                                                <Link href={`books/${book.id}`} >
+                                                    {book.body}
+                                                </Link>
+                                            </td>
+                                            <td>
+                                                <Link href={`books/${book.id}`} >
+                                                    {book.userName}
+                                                </Link>
+                                            </td>
                                     </tr>
                                 ))
                             }
                         </tbody>
                     </table>
                 ) : (
-                    <table>
+                    <table className="table-auto border">
                         <thead>
                             <tr>
                                 <th>image</th>
@@ -45,18 +55,27 @@ export default function Index({ Data }: dataType) {
                         {
                             users.map((user: userType) => (
                             <tr key={user.id}>
-                                <Link href={`users/${user.id}`}>
+                                
                                     <td>
-                                        <Image
-                                            src={user.image}
-                                            width={100}
-                                            height={100}
-                                            alt="profile_image"
-                                        />
+                                        <Link href={`users/${user.id}`}>
+                                            <Image
+                                                src={user.image}
+                                                width={100}
+                                                height={100}
+                                                alt="profile_image"
+                                            />
+                                        </Link>
                                     </td>
-                                    <td>{user.name}</td>
-                                    <td>{user.introduction}</td>
-                                </Link>
+                                    <td>
+                                        <Link href={`users/${user.id}`}>
+                                            {user.name}
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        <Link href={`users/${user.id}`}>
+                                            {user.introduction}
+                                        </Link>
+                                    </td>
                             </tr>
                             ))
                         }
@@ -64,6 +83,6 @@ export default function Index({ Data }: dataType) {
                     </table>
                 )
             }
-        </>
+        </div>
     )
 }
