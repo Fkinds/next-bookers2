@@ -1,10 +1,9 @@
 import { getServerSession } from "next-auth/next";
 import { authOption } from "../options/authOption";
 import { redirect } from "next/navigation";
-// import { objcetType } from "@/types";
+import { bookFormType } from "@/types";
 
-
-export default async function BookForm( urlparameter : any , httpMethod : string) {
+export default async function BookForm( {urlparameter , httpMethod }  : bookFormType ) {
     const session = await getServerSession(authOption)
     // console.log(session?.user?.id)
     const createBook = async (formData: FormData) => {

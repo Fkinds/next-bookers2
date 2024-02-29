@@ -1,5 +1,6 @@
 import { dataType } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Show({ Data } : dataType){
     const objectName = Object.keys(Data)[1]
@@ -14,6 +15,9 @@ export default function Show({ Data } : dataType){
                         <li>{book.title}</li>
                         <li>{book.body}</li>
                         <li>{book.userName}</li>
+                        <button>
+                            <Link href={`/books/${book.id}/edit`}>edit</Link>
+                        </button>
                     </>
                 ) : (
                     <>
