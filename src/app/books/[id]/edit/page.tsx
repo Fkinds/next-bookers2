@@ -6,7 +6,10 @@ const BookEdit = ({ params }: { params: { id : number }}) => {
     const method = "PATCH"
     return (
         <>
-            <BookForm urlparameter={parameter} httpMethod={method} />
+            <BookForm Object={{
+                urlparameter : parameter,
+                httpMethod : method
+            }} />
         </>
     )
 }

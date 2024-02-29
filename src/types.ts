@@ -1,3 +1,5 @@
+import { InitializeHook } from "module"
+
 export type userType = {
     id: string
     name: string
@@ -12,6 +14,8 @@ export type bookType = {
     body: string 
     userId : string
     userName : string
+    urlparameter : string | null
+    httpMethod : string | null 
 }
 
 export type bookFormType = {
@@ -19,4 +23,6 @@ export type bookFormType = {
     httpMethod : string 
 }
 
-export type dataType =  userType[] | bookType[] | any 
+export type objectType = bookFormType[] | bookType[] | any
+
+export type dataType =  userType[] | bookType[] | any

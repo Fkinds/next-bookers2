@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth/next";
 import { authOption } from "../options/authOption";
 import { redirect } from "next/navigation";
-import { bookFormType } from "@/types";
+import { objectType } from "@/types";
 
-export default async function BookForm( {urlparameter , httpMethod }  : bookFormType ) {
+export default async function BookForm( { Object } : objectType ) {
     const session = await getServerSession(authOption)
     // console.log(session?.user?.id)
     const createBook = async (formData: FormData) => {
@@ -18,9 +18,9 @@ export default async function BookForm( {urlparameter , httpMethod }  : bookForm
         }
         // const urlparams = `http://localhost:3000/api/book`
         // const res = await fetch(urlparams, {
-        const res = await fetch(urlparameter, {
+        const res = await fetch(Object.urlparameter, {
             // method: 'POST',
-            method: httpMethod,
+            method: Object.httpMethod,
             headers: {
                 'Content-Type': 'application/json'
             },
