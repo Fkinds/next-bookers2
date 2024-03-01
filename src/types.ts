@@ -14,8 +14,8 @@ export type bookType = {
     body: string 
     userId : string
     userName : string
-    urlparameter : string | null
-    httpMethod : string | null 
+    urlparameter : string
+    httpMethod : string
 }
 
 export type bookFormType = {

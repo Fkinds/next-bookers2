@@ -32,8 +32,8 @@ export default async function BookForm( { Object } : objectType ) {
     return (
         <>
             <form action={createBook}>
-                <input type="text" name="body" value={Object.body} />
-                <input type="text" name="title" value={Object.title} />
+                <input type="text" name="body" defaultValue={Object.body} />
+                <input type="text" name="title" defaultValue={Object.title} />
                 <button type="submit">投稿する</button>
             </form>
         </>

@@ -4,6 +4,7 @@ import BookForm from '../components/bookForm';
 
 const Users = async () => {
     const parameter = `http://localhost:3000/api/user`;
+    const postParameter = `http://localhost:3000/api/book`
     const method = "POST"
     const res = await fetch(parameter, {
         cache: "no-store"
@@ -14,7 +15,10 @@ const Users = async () => {
         <>
             <UserInformation />
             <Index Data={userObject} />
-            <BookForm urlparameter={parameter} httpMethod={method}/>
+            <BookForm Object={{
+                urlparameter : postParameter,
+                httpMethod : method
+            }}/>
         </>
     )
 }

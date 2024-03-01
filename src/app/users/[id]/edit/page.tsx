@@ -1,6 +1,6 @@
 const UserEdit = () => {
     return (
-        <div>page</div>
+        <div>UserEditPage</div>
     )
 }
 

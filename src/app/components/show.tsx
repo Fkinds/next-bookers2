@@ -6,7 +6,7 @@ export default function Show({ Data } : dataType){
     const objectName = Object.keys(Data)[1]
     const book = Data.bookWithUserName
     const user = Data.user
-    // console.log(user)
+    console.log(user)
     return (
         <>
             {
@@ -31,6 +31,9 @@ export default function Show({ Data } : dataType){
                         </li>
                         <li>{user.name}</li>
                         <li>{user.introduction}</li>
+                        <button>
+                            <Link href={`/users/${user.id}/edit`}>edit</Link>
+                        </button>
                     </>
                 )
             }
