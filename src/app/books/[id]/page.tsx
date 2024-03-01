@@ -5,16 +5,20 @@ const BookDetail = async({ params }: { params: { id: number } }) => {
     // paramsで取得したidで本の個別データを取得する
     const id = params.id 
     const parameter = `http://localhost:3000/api/book/${id}`
-    const method = "GET"
+    const postParameter = `http://localhost:3000/api/book`
+    const method = "POST"
     const res = await fetch(parameter,{
         cache: "no-store"
     });
     const data = await res.json();
-    // console.log(data)
+    // console.log(parameter)
     return (
         <>
             <Show Data={data} />
-            <BookForm urlparameter={parameter} httpMethod={method}/>
+            <BookForm Object={{
+                urlparameter : postParameter,
+                httpMethod : method
+            }}/>
         </>
     )
 }

@@ -13,7 +13,10 @@ const Books = async () => {
         <>
             <UserInformation />
             <Index Data={bookObject} />
-            <BookForm urlparameter={parameter} httpMethod={method}/>
+            <BookForm Object={{
+                urlparameter : parameter,
+                httpMethod : method
+            }}/>
         </>
     )
 }
