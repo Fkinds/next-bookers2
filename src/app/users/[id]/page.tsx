@@ -1,5 +1,6 @@
 import BookForm from "@/app/components/bookForm";
 import Show from "@/app/components/show"
+import { UserInformation } from "@/app/components/userInformation";
 
 const UserDetail = async ({ params }: { params: { id: string } }) => {
     // paramsで取得したidで本の個別データを取得する
@@ -11,9 +12,10 @@ const UserDetail = async ({ params }: { params: { id: string } }) => {
         cache: "no-store"
     });
     const data = await res.json();
-    // console.log(data.user)
+    console.log(id)
     return(
         <>
+            <UserInformation id = { id } />
             <Show Data={data} />
             <BookForm Object={{
                 urlparameter : postParameter,

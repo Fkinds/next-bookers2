@@ -21,7 +21,7 @@ export const GET = async (req: Request, res: Response) => {
             userName: bookCreateUser?.name,
         };
         return NextResponse.json(
-            { message: "Success", bookWithUserName },
+            { message: "Success", book: bookWithUserName },
             { status: 200 }
         );
     } catch (error) {

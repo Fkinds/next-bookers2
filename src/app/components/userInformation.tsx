@@ -9,8 +9,9 @@ import {
 import { getServerSession } from "next-auth"
 import { authOption } from "../options/authOption"
 import Image from "next/image"
+import Link from "next/link"
 
-export const UserInformation = async () => {
+export const UserInformation = async ({ id } : { id : string }) => {
     const session = await getServerSession(authOption)
     return (
         <>
@@ -32,6 +33,7 @@ export const UserInformation = async () => {
                             </CardContent>
                         </Card>
                     </div>
+                    {session.user.id === id ? <Link href={`/users/${id}/edit`}>edit</Link> : <div/>}
                 </>
             ) : (
             <div/>

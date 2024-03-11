@@ -13,8 +13,8 @@ const BookEdit = async({ params }: { params: { id : number }}) => {
             <BookForm Object={{
                 urlparameter : parameter,
                 httpMethod : method,
-                body : data.bookWithUserName.body,
-                title : data.bookWithUserName.title
+                body : data.book.body,
+                title : data.book.title
             }} />
         </>
     )

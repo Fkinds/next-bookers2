@@ -25,4 +25,11 @@ export type bookFormType = {
 
 export type objectType = bookFormType[] | bookType[] | any
 
-export type dataType =  userType[] | bookType[] | any
+export type dataType =  {
+    Data : {
+        books : bookType[] 
+        users : userType[] 
+        book: bookType
+        user : userType
+    }
+}

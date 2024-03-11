@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { objectType } from "@/types";
 
 export default async function BookForm( { Object } : objectType ) {
-    console.log(Object)
+    // console.log(Object)
     const session = await getServerSession(authOption)
     const createBook = async (formData: FormData) => {
         'use server'

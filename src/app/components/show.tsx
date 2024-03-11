@@ -1,16 +1,25 @@
 import { dataType } from "@/types";
+import { redirect } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Show({ Data } : dataType){
     const objectName = Object.keys(Data)[1]
-    const book = Data.bookWithUserName
+    const book = Data.book
     const user = Data.user
-    console.log(user)
+    const deleteBook = async() => {
+        "use server"
+        const parameter = `http://localhost:3000/api/book/${book.id}`
+        const res = await fetch(parameter,{
+            method: "DELETE",
+            headers: { "Content-Type": "appliction/json" }
+        })
+        redirect('/books')
+    }
     return (
         <>
             {
-                objectName === "bookWithUserName" ? (
+                objectName === "book" ? (
                     <>
                         <li>{book.title}</li>
                         <li>{book.body}</li>
@@ -18,6 +27,9 @@ export default function Show({ Data } : dataType){
                         <button>
                             <Link href={`/books/${book.id}/edit`}>edit</Link>
                         </button>
+                        <form action={deleteBook}>
+                            <button type="submit">削除</button>
+                        </form>
                     </>
                 ) : (
                     <>
@@ -31,9 +43,6 @@ export default function Show({ Data } : dataType){
                         </li>
                         <li>{user.name}</li>
                         <li>{user.introduction}</li>
-                        <button>
-                            <Link href={`/users/${user.id}/edit`}>edit</Link>
-                        </button>
                     </>
                 )
             }
