@@ -28,4 +28,4 @@ GITHUB_SECRET=???
 3. 起動する  
 package.jsonの存在するdirに移動する  
 npm installを行う  
-npm run devを行う  
+docker compose up  
